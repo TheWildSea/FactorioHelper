@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.factoriohelper.MainFragment"
+        android:label="Factorio Helper"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_calculatorActivity"
+            app:destination="@id/calculatorActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.factoriohelper.CategoryFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_elementListFragment"
+            app:destination="@id/elementListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/elementListFragment"
+        android:name="com.example.factoriohelper.ElementListFragment"
+        android:label="Element List"
+        tools:layout="@layout/fragment_element_list">
+        <argument
+            android:name="category"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_elementListFragment_to_elementDetailsActivity"
+            app:destination="@id/elementDetailsActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/elementDetailsActivity"
+        android:name="com.example.factoriohelper.ElementDetailsActivity"
+        android:label="Element Details"
+        tools:layout="@layout/activity_element_details" />
+
+    <activity
+        android:id="@+id/calculatorActivity"
+        android:name="com.example.factoriohelper.CalculatorActivity"
+        android:label="Calculator"
+        tools:layout="@layout/activity_calc" />
+
+</navigation>
